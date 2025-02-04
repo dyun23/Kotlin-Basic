@@ -18,7 +18,7 @@ fun main() {
     displayInfo(age = 25) // 파라미터를 지정해서 값 전달 가능
 
 
-    fun String.lastChar(): Char = this[this.length - 1] // 기존 클래스에 새로운 함수 추가 가능 (확장 함수)
+    fun String.lastChar() = this[this.length - 1] // 기존 클래스에 새로운 함수 추가 가능 (확장 함수)
     val text1 = "Hello"
     println(text1.lastChar())
 
@@ -29,12 +29,6 @@ fun main() {
     val emp = Employee()
     emp.printInfo()
 
-
-    val text2 = "Hello"
-    println(text2.firstChar)
-
-    val numbers = listOf(10, 20, 30)
-    println(numbers.firstElement) // 10 출력
 }
 
 class Employee {
@@ -43,8 +37,3 @@ class Employee {
     }
 }
 
-val String.firstChar: Char
-    get() = this[0] // 확장 프로퍼티에 사용되는 커스텀 Getter, firstChar를 호출할 때마다 get()이 실행됨
-
-val <T> List<T>.firstElement: T?  // 제네릭 타입 매개변수는 항상 함수나 프로퍼티 앞에 선언
-    get() = if (this.isNotEmpty()) this[0] else null
